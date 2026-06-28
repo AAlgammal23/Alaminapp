@@ -1,0 +1,17 @@
+# Android
+*.iml
+.gradle/
+/local.properties
+/.idea/
+.DS_Store
+/build/
+/captures/
+.externalNativeBuild
+.cxx/
+app/google-services.json
+
+# Firebase
+firebase-debug.log
+
+# Admin web (اختياري)
+admin-web/.env

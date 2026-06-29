@@ -55,6 +55,7 @@ fun SearchScreen(
                 modifier = Modifier.fillMaxWidth(),
                 contentPadding = PaddingValues(horizontal = 8.dp)
             ) {
+                // التصحيح: استخدام items(categories)
                 items(categories) { category ->
                     FilterChip(
                         selected = viewModel.selectedCategory.value == category.id,
@@ -79,6 +80,7 @@ fun SearchScreen(
                     columns = GridCells.Fixed(2),
                     modifier = Modifier.fillMaxSize()
                 ) {
+                    // التصحيح: استخدام items(filteredProducts)
                     items(filteredProducts) { product ->
                         ProductCard(
                             product = product,

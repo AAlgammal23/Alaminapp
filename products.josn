@@ -1,40 +1,4 @@
 {
-  "categories": [
-    {
-      "name": "أدوية",
-      "icon": "💊",
-      "order": 1,
-      "createdAt": "2026-06-29T10:00:00Z"
-    },
-    {
-      "name": "تجميل",
-      "icon": "🧴",
-      "order": 2,
-      "createdAt": "2026-06-29T10:00:00Z"
-    },
-    {
-      "name": "أطفال",
-      "icon": "👶",
-      "order": 3,
-      "createdAt": "2026-06-29T10:00:00Z"
-    },
-    {
-      "name": "فيتامينات",
-      "icon": "🍊",
-      "order": 4,
-      "createdAt": "2026-06-29T10:00:00Z"
-    }
-  ],
-  "contacts": [
-    {
-      "whatsapp": "+967774973636",
-      "phone": "+967774973636",
-      "email": "alaminmodern.ph@gmail.com",
-      "address": "اليمن - إب - مدينة القاعدة",
-      "facebook": "https://www.facebook.com/share/18BNE6VzVK/",
-      "workingHours": "يومياً 8 ص - 11 م"
-    }
-  ],
   "products": [
     {
       "name": "بنادول إكسترا",
@@ -85,23 +49,35 @@
       "isOffer": false,
       "offerPrice": 0,
       "createdAt": "2026-06-29T10:00:00Z"
-    }
-  ],
-  "banners": [
+    },
     {
-      "title": "عروض الصيف",
-      "imageUrl": "https://via.placeholder.com/800x400/1ABC9C/FFFFFF?text=عروض+الصيف",
-      "link": "",
-      "active": true,
-      "order": 1,
+      "name": "سيروم فيتامين سي",
+      "category": "تجميل",
+      "price": 850,
+      "imageUrl": "https://via.placeholder.com/300x300/1ABC9C/FFFFFF?text=سيروم",
+      "description": "سيروم لتفتيح البشرة وتوحيد لونها",
+      "isOffer": true,
+      "offerPrice": 650,
       "createdAt": "2026-06-29T10:00:00Z"
     },
     {
-      "title": "خصم 20% على الأدوية",
-      "imageUrl": "https://via.placeholder.com/800x400/16A085/FFFFFF?text=خصم+20%25",
-      "link": "",
-      "active": true,
-      "order": 2,
+      "name": "أوميغا 3",
+      "category": "مكملات غذائية",
+      "price": 650,
+      "imageUrl": "https://via.placeholder.com/300x300/1ABC9C/FFFFFF?text=اوميغا",
+      "description": "أحماض دهنية أساسية لصحة القلب والدماغ",
+      "isOffer": true,
+      "offerPrice": 500,
+      "createdAt": "2026-06-29T10:00:00Z"
+    },
+    {
+      "name": "واقي شمس SPF 50",
+      "category": "عناية بالبشرة",
+      "price": 380,
+      "imageUrl": "https://via.placeholder.com/300x300/1ABC9C/FFFFFF?text=واقي+شمس",
+      "description": "واقي شمس بعامل حماية 50، مقاوم للماء",
+      "isOffer": false,
+      "offerPrice": 0,
       "createdAt": "2026-06-29T10:00:00Z"
     }
   ]

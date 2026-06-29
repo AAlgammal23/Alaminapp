@@ -1,0 +1,108 @@
+{
+  "categories": [
+    {
+      "name": "أدوية",
+      "icon": "💊",
+      "order": 1,
+      "createdAt": "2026-06-29T10:00:00Z"
+    },
+    {
+      "name": "تجميل",
+      "icon": "🧴",
+      "order": 2,
+      "createdAt": "2026-06-29T10:00:00Z"
+    },
+    {
+      "name": "أطفال",
+      "icon": "👶",
+      "order": 3,
+      "createdAt": "2026-06-29T10:00:00Z"
+    },
+    {
+      "name": "فيتامينات",
+      "icon": "🍊",
+      "order": 4,
+      "createdAt": "2026-06-29T10:00:00Z"
+    }
+  ],
+  "contacts": [
+    {
+      "whatsapp": "+967774973636",
+      "phone": "+967774973636",
+      "email": "alaminmodern.ph@gmail.com",
+      "address": "اليمن - إب - مدينة القاعدة",
+      "facebook": "https://www.facebook.com/share/18BNE6VzVK/",
+      "workingHours": "يومياً 8 ص - 11 م"
+    }
+  ],
+  "products": [
+    {
+      "name": "بنادول إكسترا",
+      "category": "أدوية",
+      "price": 500,
+      "imageUrl": "https://via.placeholder.com/300x300/1ABC9C/FFFFFF?text=بنادول",
+      "description": "مسكن للألم وخافض للحرارة",
+      "isOffer": false,
+      "offerPrice": 0,
+      "createdAt": "2026-06-29T10:00:00Z"
+    },
+    {
+      "name": "كريم ترطيب",
+      "category": "تجميل",
+      "price": 350,
+      "imageUrl": "https://via.placeholder.com/300x300/1ABC9C/FFFFFF?text=كريم",
+      "description": "مرطب للبشرة الجافة",
+      "isOffer": true,
+      "offerPrice": 250,
+      "createdAt": "2026-06-29T10:00:00Z"
+    },
+    {
+      "name": "سبازمو-موف",
+      "category": "أدوية",
+      "price": 450,
+      "imageUrl": "https://via.placeholder.com/300x300/1ABC9C/FFFFFF?text=سبازمو",
+      "description": "مضاد للتشنجات ومسكن لآلام المعدة",
+      "isOffer": true,
+      "offerPrice": 350,
+      "createdAt": "2026-06-29T10:00:00Z"
+    },
+    {
+      "name": "شامبو بيبي",
+      "category": "أطفال",
+      "price": 280,
+      "imageUrl": "https://via.placeholder.com/300x300/1ABC9C/FFFFFF?text=شامبو",
+      "description": "شامبو لطيف للأطفال، خالي من الدموع",
+      "isOffer": false,
+      "offerPrice": 0,
+      "createdAt": "2026-06-29T10:00:00Z"
+    },
+    {
+      "name": "فيتامين د 1000",
+      "category": "فيتامينات",
+      "price": 220,
+      "imageUrl": "https://via.placeholder.com/300x300/1ABC9C/FFFFFF?text=فيتامين+د",
+      "description": "مكمل غذائي لفيتامين د، يقوي العظام والمناعة",
+      "isOffer": false,
+      "offerPrice": 0,
+      "createdAt": "2026-06-29T10:00:00Z"
+    }
+  ],
+  "banners": [
+    {
+      "title": "عروض الصيف",
+      "imageUrl": "https://via.placeholder.com/800x400/1ABC9C/FFFFFF?text=عروض+الصيف",
+      "link": "",
+      "active": true,
+      "order": 1,
+      "createdAt": "2026-06-29T10:00:00Z"
+    },
+    {
+      "title": "خصم 20% على الأدوية",
+      "imageUrl": "https://via.placeholder.com/800x400/16A085/FFFFFF?text=خصم+20%25",
+      "link": "",
+      "active": true,
+      "order": 2,
+      "createdAt": "2026-06-29T10:00:00Z"
+    }
+  ]
+}

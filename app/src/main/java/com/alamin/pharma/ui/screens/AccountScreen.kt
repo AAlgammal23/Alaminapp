@@ -7,16 +7,19 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.alamin.pharma.ui.PharmacyViewModel
 import com.alamin.pharma.utils.ContactUtils
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AccountScreen(
     viewModel: PharmacyViewModel = viewModel(),
     onBack: () -> Unit
 ) {
+    val context = LocalContext.current
     val contact = viewModel.contactInfo.value
 
     Scaffold(
@@ -47,12 +50,22 @@ fun AccountScreen(
             Text("صيدلية الأمين الحديثة", style = MaterialTheme.typography.titleLarge)
             Spacer(modifier = Modifier.height(16.dp))
 
-            InfoItem(icon = Icons.Default.Phone, text = contact.phone, onClick = { ContactUtils.call(contact.phone) })
-            InfoItem(icon = Icons.Default.Message, text = "واتساب", onClick = { ContactUtils.openWhatsApp("") })
-            InfoItem(icon = Icons.Default.Email, text = contact.email, onClick = { ContactUtils.sendEmail(contact.email) })
-            InfoItem(icon = Icons.Default.LocationOn, text = contact.address, onClick = { ContactUtils.openLocation(contact.address) })
-            InfoItem(icon = Icons.Default.ThumbUp, text = "فيسبوك", onClick = { ContactUtils.openFacebook(contact.facebook) })
-            InfoItem(icon = Icons.Default.Schedule, text = contact.workingHours, onClick = {})
+            InfoItem(icon = Icons.Default.Phone, text = contact.phone) {
+                ContactUtils.call(context, contact.phone)
+            }
+            InfoItem(icon = Icons.Default.Message, text = "واتساب") {
+                ContactUtils.openWhatsApp(context, "")
+            }
+            InfoItem(icon = Icons.Default.Email, text = contact.email) {
+                ContactUtils.sendEmail(context, contact.email)
+            }
+            InfoItem(icon = Icons.Default.LocationOn, text = contact.address) {
+                ContactUtils.openLocation(context, contact.address)
+            }
+            InfoItem(icon = Icons.Default.ThumbUp, text = "فيسبوك") {
+                ContactUtils.openFacebook(context, contact.facebook)
+            }
+            InfoItem(icon = Icons.Default.Schedule, text = contact.workingHours) {}
         }
     }
 }

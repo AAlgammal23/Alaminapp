@@ -14,7 +14,7 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 
 @Composable
-fun SearchBar(
+fun SearchBarComponent(
     query: String,
     onQueryChange: (String) -> Unit,
     onSearch: () -> Unit,

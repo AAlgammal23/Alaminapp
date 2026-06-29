@@ -9,17 +9,20 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.alamin.pharma.data.CartItem
 import com.alamin.pharma.ui.PharmacyViewModel
 import com.alamin.pharma.utils.ContactUtils
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CartScreen(
     viewModel: PharmacyViewModel = viewModel(),
     onBack: () -> Unit
 ) {
+    val context = LocalContext.current
     val cartItems = viewModel.cart.value
     val total = viewModel.getCartTotal()
 
@@ -49,7 +52,7 @@ fun CartScreen(
                         Button(
                             onClick = {
                                 val message = buildOrderMessage(cartItems)
-                                ContactUtils.openWhatsApp(message)
+                                ContactUtils.openWhatsApp(context, message)
                                 viewModel.clearCart()
                             }
                         ) {

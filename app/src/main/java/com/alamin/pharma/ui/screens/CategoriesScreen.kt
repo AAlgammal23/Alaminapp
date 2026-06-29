@@ -3,6 +3,7 @@ package com.alamin.pharma.ui.screens
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -12,6 +13,7 @@ import com.alamin.pharma.ui.PharmacyViewModel
 import com.alamin.pharma.ui.components.CategoryCard
 import com.alamin.pharma.ui.components.ProductCard
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CategoriesScreen(
     viewModel: PharmacyViewModel = viewModel(),
@@ -35,10 +37,10 @@ fun CategoriesScreen(
                     .fillMaxWidth()
                     .height(120.dp)
             ) {
-                items(categories.size) { index ->
+                items(categories) { category ->
                     CategoryCard(
-                        category = categories[index],
-                        onClick = { onCategoryClick(categories[index].id) },
+                        category = category,
+                        onClick = { onCategoryClick(category.id) },
                         modifier = Modifier.padding(4.dp)
                     )
                 }
@@ -48,11 +50,11 @@ fun CategoriesScreen(
                 columns = GridCells.Fixed(2),
                 modifier = Modifier.fillMaxSize()
             ) {
-                items(filteredProducts.size) { index ->
+                items(filteredProducts) { product ->
                     ProductCard(
-                        product = filteredProducts[index],
-                        onClick = { onProductClick(filteredProducts[index].id) },
-                        onAddToCart = { viewModel.addToCart(filteredProducts[index]) },
+                        product = product,
+                        onClick = { onProductClick(product.id) },
+                        onAddToCart = { viewModel.addToCart(product) },
                         modifier = Modifier.padding(4.dp)
                     )
                 }

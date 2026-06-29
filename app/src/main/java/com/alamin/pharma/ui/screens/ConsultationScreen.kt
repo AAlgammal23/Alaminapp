@@ -7,13 +7,16 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import com.alamin.pharma.utils.ContactUtils
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ConsultationScreen(
     onBack: () -> Unit
 ) {
+    val context = LocalContext.current
     var name by remember { mutableStateOf("") }
     var phone by remember { mutableStateOf("") }
     var question by remember { mutableStateOf("") }
@@ -69,7 +72,7 @@ fun ConsultationScreen(
                         if (phone.isNotEmpty()) append("الهاتف: $phone\n")
                         append("السؤال:\n$question")
                     }
-                    ContactUtils.openWhatsApp(message)
+                    ContactUtils.openWhatsApp(context, message)
                     name = ""
                     phone = ""
                     question = ""

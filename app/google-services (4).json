@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "163525939235",
+    "project_id": "alaminstor",
+    "storage_bucket": "alaminstor.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:163525939235:android:95524ea3e7bd1c6df12196",
+        "android_client_info": {
+          "package_name": "com.alamin.pharma"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBYpZIQrwmdiPPva9_Hat_wUb1lOBopjGE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

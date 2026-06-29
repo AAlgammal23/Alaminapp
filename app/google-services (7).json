@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "846568696134",
+    "firebase_url": "https://alamin-pharmacy-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "alamin-pharmacy",
+    "storage_bucket": "alamin-pharmacy.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:846568696134:android:c589f7781b91b98c3b5d47",
+        "android_client_info": {
+          "package_name": "com.alamin.pharma"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "846568696134-64ft75csm93gmgmeacpenf4o3uvbsp7b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDIS4HfaLPT1whaNCcqI6W8ueXyRAkx4p8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "846568696134-64ft75csm93gmgmeacpenf4o3uvbsp7b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

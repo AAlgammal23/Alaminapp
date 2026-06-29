@@ -10,6 +10,7 @@ import android.content.Intent
 import android.os.Build
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
@@ -23,6 +24,7 @@ import androidx.core.app.NotificationCompat
 import com.alamin.pharma.data.MedicineReminder
 import java.util.*
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MedicineReminderScreen(
     onBack: () -> Unit
@@ -134,6 +136,7 @@ fun ReminderItem(
     }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AddReminderDialog(
     onDismiss: () -> Unit,
@@ -176,7 +179,7 @@ fun AddReminderDialog(
                 Spacer(modifier = Modifier.height(8.dp))
                 Text("أيام التكرار:")
                 LazyRow {
-                    items(daysOfWeek.indices.toList()) { index ->
+                    items(daysOfWeek.size) { index ->
                         FilterChip(
                             selected = selectedDays.contains(index + 1),
                             onClick = {
@@ -236,7 +239,10 @@ fun NumberPicker(
     }
 }
 
-// --- دوال التخزين والإدارة ---
+// ============================================================
+// دوال التخزين والإدارة
+// ============================================================
+
 fun saveReminder(context: Context, reminder: MedicineReminder) {
     val all = loadReminders(context).toMutableList()
     all.add(reminder)

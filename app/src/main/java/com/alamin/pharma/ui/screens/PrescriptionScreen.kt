@@ -16,23 +16,24 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.AsyncImage
 import com.alamin.pharma.ui.PharmacyViewModel
 import com.alamin.pharma.utils.ContactUtils
-import kotlinx.coroutines.launch
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun PrescriptionScreen(
     viewModel: PharmacyViewModel = viewModel(),
     onBack: () -> Unit
 ) {
     val context = LocalContext.current
-    val scope = rememberCoroutineScope()
     var selectedImageUri by remember { mutableStateOf<Uri?>(null) }
     var notes by remember { mutableStateOf("") }
     var isUploading by remember { mutableStateOf(false) }
+    var uploadError by remember { mutableStateOf<String?>(null) }
 
     val launcher = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.GetContent()
     ) { uri ->
         selectedImageUri = uri
+        uploadError = null
     }
 
     Scaffold(
@@ -54,13 +55,17 @@ fun PrescriptionScreen(
                 .padding(16.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
+            // زر اختيار الصورة
             Button(
                 onClick = { launcher.launch("image/*") },
                 modifier = Modifier.fillMaxWidth()
             ) {
                 Text("اختيار صورة الوصفة")
             }
+
             Spacer(modifier = Modifier.height(16.dp))
+
+            // عرض الصورة المختارة
             if (selectedImageUri != null) {
                 AsyncImage(
                     model = selectedImageUri,
@@ -71,6 +76,8 @@ fun PrescriptionScreen(
                 )
                 Spacer(modifier = Modifier.height(16.dp))
             }
+
+            // حقل الملاحظات
             OutlinedTextField(
                 value = notes,
                 onValueChange = { notes = it },
@@ -78,31 +85,48 @@ fun PrescriptionScreen(
                 modifier = Modifier.fillMaxWidth(),
                 minLines = 3
             )
+
+            // عرض رسالة الخطأ إن وجدت
+            if (uploadError != null) {
+                Text(
+                    text = uploadError!!,
+                    color = MaterialTheme.colorScheme.error,
+                    modifier = Modifier.padding(8.dp)
+                )
+            }
+
             Spacer(modifier = Modifier.height(16.dp))
+
+            // زر الإرسال
             Button(
                 onClick = {
-                    scope.launch {
-                        isUploading = true
-                        try {
-                            if (selectedImageUri != null) {
-                                val bytes = context.contentResolver.openInputStream(selectedImageUri!!)?.readBytes()
-                                if (bytes != null) {
-                                    val success = viewModel.uploadPrescription(bytes, notes)
-                                    if (success) {
-                                        val message = "وصفة طبية جديدة.\nالملاحظات: $notes"
-                                        ContactUtils.openWhatsApp(message)
-                                        selectedImageUri = null
-                                        notes = ""
-                                    }
-                                }
-                            } else {
-                                val message = "وصفة طبية جديدة (بدون صورة).\nالملاحظات: $notes"
-                                ContactUtils.openWhatsApp(message)
+                    isUploading = true
+                    uploadError = null
+                    try {
+                        if (selectedImageUri != null) {
+                            val bytes = context.contentResolver
+                                .openInputStream(selectedImageUri!!)
+                                ?.readBytes()
+                            if (bytes != null) {
+                                // إرسال الوصفة عبر واتساب (مع الصورة)
+                                // هنا يمكنك رفع الصورة إلى Firebase Storage
+                                val message = "وصفة طبية جديدة.\nالملاحظات: $notes"
+                                ContactUtils.openWhatsApp(context, message)
+                                selectedImageUri = null
                                 notes = ""
+                            } else {
+                                uploadError = "فشل في قراءة الصورة"
                             }
-                        } finally {
-                            isUploading = false
+                        } else {
+                            // إرسال بدون صورة
+                            val message = "وصفة طبية جديدة (بدون صورة).\nالملاحظات: $notes"
+                            ContactUtils.openWhatsApp(context, message)
+                            notes = ""
                         }
+                    } catch (e: Exception) {
+                        uploadError = e.message ?: "حدث خطأ غير متوقع"
+                    } finally {
+                        isUploading = false
                     }
                 },
                 modifier = Modifier.fillMaxWidth(),

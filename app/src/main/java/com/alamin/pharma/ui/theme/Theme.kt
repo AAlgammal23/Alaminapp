@@ -10,32 +10,33 @@ fun AlAminTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable () -> Unit
 ) {
-    val colors = if (darkTheme) {
+    val colorScheme = if (darkTheme) {
         darkColorScheme(
             primary = TealLight,
             secondary = TealDark,
             background = Color(0xFF1A1A1A),
             surface = Color(0xFF2C2C2C),
-            onPrimary = White,
-            onSecondary = White,
-            onBackground = White,
-            onSurface = White
+            onPrimary = Color.White,
+            onSecondary = Color.White,
+            onBackground = Color.White,
+            onSurface = Color.White
         )
     } else {
         lightColorScheme(
             primary = TealLight,
             secondary = TealDark,
             background = Background,
-            surface = White,
-            onPrimary = White,
-            onSecondary = White,
+            surface = Color.White,
+            onPrimary = Color.White,
+            onSecondary = Color.White,
             onBackground = TextPrimary,
             onSurface = TextPrimary
         )
     }
+    
     MaterialTheme(
-        colorScheme = colors,
-        typography = Typography,
+        colorScheme = colorScheme,
+        typography = Typography(),
         content = content
     )
 }

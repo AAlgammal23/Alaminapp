@@ -58,6 +58,7 @@ fun HomeScreen(
                     modifier = Modifier.fillMaxWidth(),
                     contentPadding = PaddingValues(horizontal = 8.dp)
                 ) {
+                    // التصحيح: استخدام items(categories)
                     items(categories) { category ->
                         CategoryCard(
                             category = category,
@@ -74,6 +75,7 @@ fun HomeScreen(
                     modifier = Modifier.padding(8.dp)
                 )
             }
+            // التصحيح: استخدام items(products.take(10))
             items(products.take(10)) { product ->
                 ProductCard(
                     product = product,

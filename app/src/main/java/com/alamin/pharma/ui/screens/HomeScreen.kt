@@ -5,6 +5,7 @@ import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.GridItemSpan
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.*
@@ -56,10 +57,10 @@ fun HomeScreen(
                     modifier = Modifier.fillMaxWidth(),
                     contentPadding = PaddingValues(horizontal = 8.dp)
                 ) {
-                    items(categories.size) { index ->
+                    items(categories) { category ->
                         CategoryCard(
-                            category = categories[index],
-                            onClick = { onCategoryClick(categories[index].id) },
+                            category = category,
+                            onClick = { onCategoryClick(category.id) },
                             modifier = Modifier.padding(4.dp)
                         )
                     }

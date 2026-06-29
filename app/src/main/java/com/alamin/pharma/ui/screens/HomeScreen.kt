@@ -16,6 +16,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.alamin.pharma.ui.PharmacyViewModel
 import com.alamin.pharma.ui.components.*
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen(
     viewModel: PharmacyViewModel = viewModel(),

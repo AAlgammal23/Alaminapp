@@ -37,3 +37,5 @@ jobs:
         with:
           name: app-release
           path: app/build/outputs/apk/release/app-release.apk
+          - name: Clean build
+  run: ./gradlew clean

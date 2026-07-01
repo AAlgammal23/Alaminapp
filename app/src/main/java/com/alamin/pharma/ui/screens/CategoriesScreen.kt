@@ -37,7 +37,6 @@ fun CategoriesScreen(
                     .fillMaxWidth()
                     .height(120.dp)
             ) {
-                // التصحيح: استخدام items(categories) وليس items(categories.size)
                 items(categories) { category ->
                     CategoryCard(
                         category = category,
@@ -51,7 +50,6 @@ fun CategoriesScreen(
                 columns = GridCells.Fixed(2),
                 modifier = Modifier.fillMaxSize()
             ) {
-                // التصحيح: استخدام items(filteredProducts) وليس items(filteredProducts.size)
                 items(filteredProducts) { product ->
                     ProductCard(
                         product = product,
